@@ -83,7 +83,6 @@ deleteBtn.addEventListener("click", () => alert("Se implementa en rama eliminar"
 editBtn.addEventListener("click", () => alert("Se implementa en rama editar"));
 
 renderMovies();
-
 movieList.addEventListener("click", (e) => {
   const btn = e.target.closest("button");
   if (!btn) return;
@@ -93,21 +92,6 @@ movieList.addEventListener("click", (e) => {
 
   const id = Number(li.dataset.id);
 
-  if (btn.dataset.action === "delete") {
-    deleteMovieById(id);
-  }
-});
-
-movieList.addEventListener("click", (e) => {
-  const btn = e.target.closest("button");
-  if (!btn) return;
-
-  const li = e.target.closest("li.item");
-  if (!li) return;
-
-  const id = Number(li.dataset.id);
-
-  if (btn.dataset.action === "edit") {
-    editMovieById(id);
-  }
+  if (btn.dataset.action === "delete") deleteMovieById(id);
+  if (btn.dataset.action === "edit") editMovieById(id);
 });
